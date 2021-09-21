@@ -2,7 +2,9 @@
 
 namespace Database\Factories\Model;
 
+use App\Models\User;
 use App\Models\Model\Reply;
+use App\Models\Model\Question;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ReplyFactory extends Factory
@@ -22,7 +24,13 @@ class ReplyFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'body' => $this->faker->text(),
+            'question_id' => function(){
+                return Question::all()->random();
+            },
+            'user_id' => function(){
+                return User::all()->random();
+            }
         ];
     }
 }

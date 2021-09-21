@@ -2,8 +2,11 @@
 
 namespace Database\Factories\Model;
 
+use App\Models\User;
 use App\Models\Model\Like;
+use App\Models\Model\Reply;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Faker\Generator as Faker;
 
 class LikeFactory extends Factory
 {
@@ -22,7 +25,12 @@ class LikeFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'reply_id' => function(){
+                return Reply::all()->random();
+            },
+            'user_id' => funtion(){
+                return User::all()->random();
+            }
         ];
     }
 }
