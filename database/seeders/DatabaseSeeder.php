@@ -17,8 +17,8 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::factory(20)->create();
         \App\Models\Model\Category::factory(10)->create();
         \App\Models\Model\Question::factory(20)->create();
-        // \App\Models\Model\Reply::create()->each(function($reply){
-        //     return $reply->like()->save(factory(App\Models\Model\Like::class)->make());
-        // });
+        \App\Models\Model\Reply::create()->each(function($reply){
+            return $reply->like()->save(factory(Like::class)->make());
+        });
     }
 }
