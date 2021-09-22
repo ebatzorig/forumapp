@@ -28,7 +28,7 @@ class LikeFactory extends Factory
             'reply_id' => function(){
                 return Reply::all()->random();
             },
-            'user_id' => funtion(){
+            'user_id' => function(){
                 return User::all()->random();
             }
         ];
