@@ -44,10 +44,10 @@ class User extends Authenticatable
     public function question(){
         return $this->hasMany(Question::class);
     }
-    public function reply(){
-        return $this->hasMany(Reply::class);
-    }
-    public function like(){
-        return $this->hasMany(Like::class);
-    }
+    // public function reply(){
+    //     return $this->hasMany(Reply::class);
+    // }
+    // public function like(){
+    //     return $this->hasMany(Like::class);
+    // }
 }
