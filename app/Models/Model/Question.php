@@ -19,4 +19,8 @@ class Question extends Model
     public function reply(){
         return $this->hasMany(Reply::class);
     }
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }
