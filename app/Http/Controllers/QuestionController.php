@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\QuestionResource;
 use App\Models\Model\Question;
 // use Facade\FlareClient\Http\Response;
 use Illuminate\Http\Request;
@@ -16,7 +17,7 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        return Question::get();
+        return QuestionResource::collection(Question::get());
     }
 
     /**
@@ -49,7 +50,7 @@ class QuestionController extends Controller
      */
     public function show(Question $question)
     {
-        return $question;
+        return new QuestionResource($question);
     }
 
     /**
@@ -72,7 +73,8 @@ class QuestionController extends Controller
      */
     public function update(Request $request, Question $question)
     {
-        //
+        $question->update($request->all());
+        return response("Шинэчлэгдлээ", Response::HTTP_ACCEPTED);
     }
 
     /**

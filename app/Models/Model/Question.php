@@ -23,8 +23,10 @@ class Question extends Model
     public function reply(){
         return $this->hasMany(Reply::class);
     }
-    public function getRouteKeyName()
-    {
+    public function getRouteKeyName(){
         return 'slug';
+    }
+    public function getPathAttribute(){
+        return asset("api/question/$this->slug");
     }
 }
